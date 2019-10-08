@@ -6,12 +6,13 @@ namespace MinhaWebAPI.Util
     public class DAL
     {
         private static string _server = "localhost";
-        private static string _database = "dbcliente";
+        private static string _database = "DBCLIENTE";
         private static string _user = "root";
         private static string _password = "";
-        private string _connectionString = $"Server={_server}; Database={_database}; UId={_user}; Pwd={_password}; SslMode=none;";
         private MySqlConnection _connection;
 
+        private string _connectionString = $"Server={_server}; Database={_database}; Uid={_user}; Pwd={_password};";
+        
         public DAL()
         {
             _connection = new MySqlConnection(_connectionString);
