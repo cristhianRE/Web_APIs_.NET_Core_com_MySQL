@@ -11,7 +11,7 @@ namespace MinhaWebAPI.Util
         private static string _password = "";
         private MySqlConnection _connection;
 
-        private string _connectionString = $"Server={_server}; Database={_database}; Uid={_user}; Pwd={_password}; Sslmode=none;";
+        private string _connectionString = $"Server={_server}; Database={_database}; Uid={_user}; Pwd={_password}; Sslmode=none; charset=utf8;";
         
         public DAL()
         {

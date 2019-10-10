@@ -49,9 +49,25 @@ namespace MinhaWebAPI.Controllers
         }
 
         // PUT api/cliente/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        [Route("atualizar/{id}")]
+        public ReturnAllServices Atualizar(int id, [FromBody] ClienteModel dados)
         {
+            ReturnAllServices retorno = new ReturnAllServices();
+
+            try
+            {
+                dados.Id = id;
+                dados.AtualizarCliente();
+                retorno.Result = true;
+                retorno.ErrorMessage = string.Empty;
+            }
+            catch (Exception e)
+            {
+                retorno.Result = false;
+                retorno.ErrorMessage = "Erro ao tentar registrar um cliente: " + e.Message;
+            }
+            return retorno;
         }
 
         // DELETE api/cliente/5
