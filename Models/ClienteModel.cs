@@ -123,5 +123,14 @@ namespace MinhaWebAPI.Models
 
             return item;
         }
+
+        public void Excluir(int id)
+        {
+            DAL objDAL = new DAL();
+
+            string sql = $"delete from cliente where id = {id}";
+
+            objDAL.ExecutarComandoSQL(sql);
+        }
     }
 }
